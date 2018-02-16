@@ -1,3 +1,5 @@
+import PlaceLocation from './PlaceLocation';
+import TastingRating from './TastingRating';
 class Coffee {
     //Properties
     name:string;
