@@ -6,3 +6,5 @@ class TastingRating {
     sweetness:number;
     afterTaste:number;
 }
+
+export default TastingRating;

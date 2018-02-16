@@ -4,3 +4,5 @@ class PlaceLocation{
     latitude:number;
     longitutde:number;
 }
+
+export default PlaceLocation;
