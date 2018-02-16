@@ -12,10 +12,12 @@ export class DataService {
     const list = [
       new Coffee('Double Espresso','Sunny Cafe', new PlaceLocation("123 Market ST","San Francisco")),
       new Coffee('Caramel Americano','StarCoffee', new PlaceLocation("Gran Via 34","Madrid")),
-    ]
+    ];
+    callback(list);
   }
 
   save(coffee, callback){
-
+    //Todo change it with a real web service
+    callback(true);
   }
 }
