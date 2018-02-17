@@ -9,12 +9,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule,MatIconModule,MatInputModule,MatSelectModule,MatSliderModule,MatToolbarModule,
         MatCardModule,MatSlideToggleModule} from '@angular/material';
 import 'hammerjs';
-import { ListComponent } from './list/list.component'
+import { ListComponent } from './list/list.component';
+import { CoffeeComponent } from './coffee/coffee.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    CoffeeComponent
   ],
   imports: [
     BrowserModule,
