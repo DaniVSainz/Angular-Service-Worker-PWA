@@ -3,7 +3,7 @@ class PlaceLocation{
     constructor(public address:string="",
                 public city:string="",
                 public latitude:number= null,
-                public longitutde:number=null
+                public longitude:number=null
     ){}
 
 }

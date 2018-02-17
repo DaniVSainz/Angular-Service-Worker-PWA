@@ -1,18 +1,53 @@
 <form action="">
-  <mat-input-container>
-    <input matInput  placeholder="Coffee Name" name="name" [(ngModel)]="coffee.name">
-  </mat-input-container>
+  <mat-card>
+    <mat-input-container>
+        <input matInput  placeholder="Coffee Name" name="name" [(ngModel)]="coffee.name">
+      </mat-input-container>
+  </mat-card>
 
-  <mat-input-container>
-    <input matInput  placeholder="Place Name" name="name" [(ngModel)]="coffee.place">
-  </mat-input-container>
+  <mat-card>
+    <mat-select placeholder="Coffee Type" name="type" [(ngModel)]="coffee.type">
+        <mat-option *ngFor="let type of types">{{type}}</mat-option>
+      </mat-select>
+  </mat-card>
 
-  <mat-select placeholder="Coffee Type" name="type" [(ngModel)]="coffee.type">
-    <mat-option *ngFor="let type of types">{{type}}</mat-option>
-  </mat-select>
+  <mat-card>
+    <mat-input-container>
+        <input matInput  placeholder="Place Name" name="place" [(ngModel)]="coffee.place">
+      </mat-input-container>
 
-  <mat-input-container>
-    <textarea matInput  placeholder="Notes" name="name" [(ngModel)]="coffee.notes">
-    </textarea>
-  </mat-input-container>
+      <mat-input-container>
+          <input matInput  placeholder="Address" name="address" [(ngModel)]="coffee.location.address">
+      </mat-input-container>
+
+      <mat-input-container>
+          <input matInput  placeholder="City" name="city" [(ngModel)]="coffee.location.city">
+      </mat-input-container>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-subtitle>Ratings</mat-card-subtitle>
+    <mat-slider max=10 thumbLabel name="rating" [(ngModel)]="coffee.rating" tickInterval="1"></mat-slider>
+
+    <mat-slide-toggle>Tasting Ratings</mat-slide-toggle>
+    <section id="tasting">
+      <label>Aroma</label>
+      <label>Aroma</label>
+      <label>Aroma</label>
+      <label>Aroma</label>
+      <label>Aroma</label>
+    </section>
+  </mat-card>
+
+  <mat-card>
+    <mat-input-container>
+        <textarea matInput  placeholder="Notes" name="notes" [(ngModel)]="coffee.notes">
+        </textarea>
+      </mat-input-container>
+  </mat-card>
+
+  <mat-card>
+    {{coffee | json}}
+  </mat-card>
+
 </form>

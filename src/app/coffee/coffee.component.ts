@@ -1,3 +1,4 @@
+import { GeolocationService } from './../geolocation.service';
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import Coffee from '../logic/Coffee';
@@ -8,7 +9,8 @@ import Coffee from '../logic/Coffee';
 })
 export class CoffeeComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private geoLocation:GeolocationService) { }
 
   routingSubscription:any;
   coffee: Coffee;
@@ -18,6 +20,13 @@ export class CoffeeComponent implements OnInit {
     this.routingSubscription = this.route.params.subscribe(params =>{
       console.log(params["id"]);
     });
+
+    this.geoLocation.requestLocation(location =>{
+      if(location){
+        this.coffee.location.latitude = location.latitude;
+        this.coffee.location.longitude = location.longitude;
+      }
+    })
   }
 
   ngOnDestory(){
