@@ -2,4 +2,17 @@
   <mat-input-container>
     <input matInput  placeholder="Coffee Name" name="name" [(ngModel)]="coffee.name">
   </mat-input-container>
+
+  <mat-input-container>
+    <input matInput  placeholder="Place Name" name="name" [(ngModel)]="coffee.place">
+  </mat-input-container>
+
+  <mat-select placeholder="Coffee Type" name="type" [(ngModel)]="coffee.type">
+    <mat-option *ngFor="let type of types">{{type}}</mat-option>
+  </mat-select>
+
+  <mat-input-container>
+    <textarea matInput  placeholder="Notes" name="name" [(ngModel)]="coffee.notes">
+    </textarea>
+  </mat-input-container>
 </form>

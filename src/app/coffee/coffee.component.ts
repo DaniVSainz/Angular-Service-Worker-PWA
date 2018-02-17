@@ -12,7 +12,7 @@ export class CoffeeComponent implements OnInit {
 
   routingSubscription:any;
   coffee: Coffee;
-  
+  types = ["Espresso","Ristretto","Americano","Cappyccino"];
   ngOnInit() {
     this.coffee = new Coffee();
     this.routingSubscription = this.route.params.subscribe(params =>{
