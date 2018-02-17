@@ -3,7 +3,7 @@ import { GeolocationService } from './geolocation.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-
+import {FormsModule} from '@angular/forms'
 import {Routes,RouterModule} from '@angular/router';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -32,7 +32,8 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,MatIconModule,MatInputModule,MatSelectModule,MatSliderModule,MatToolbarModule,
-      MatCardModule,MatSlideToggleModule
+      MatCardModule,MatSlideToggleModule,
+    FormsModule
   ],
   providers: [GeolocationService,DataService],
   bootstrap: [AppComponent]
