@@ -3,5 +3,24 @@
     "start_url": "/",
     "orientation": "any",
     "scope": "/",
-    "display" : "standalone"
+    "display" : "standalone",
+
+    "short_name": "CoffeeApp",
+    "background_color": "#4c5563",
+    "icons": [
+        {
+            "src": "icon_96.png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "icon_144.png",
+            "sizes": "144x144" 
+        },{
+            "src": "icon_192.png",
+            "sizes": "192x192" 
+        },{
+            "src": "icon_512.png",
+            "sizes": "512x512" 
+        }
+    ]
 }
