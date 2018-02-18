@@ -34,9 +34,8 @@ export class ListComponent implements OnInit {
 
   shareCoffee(coffee:Coffee){
     const shareText = `I had this coffee at ${coffee.place} and for me it's a ${coffee.rating} star coffee`;
-    let newVariable = (window.navigator as any)
-    if(newVariable.share){
-      newVariable.share({
+    if('share' in navigator){
+      (navigator as any).share({
         title:coffee.name,
         text: shareText,
         url: window.location.href
@@ -44,6 +43,7 @@ export class ListComponent implements OnInit {
         console.log('Shared')
       }).catch(() => console.log('error sharing'));
     }else{
+      console.log('else block');
       const shareURL = `whatsapp://send?text=${encodeURIComponent(shareText)}`;
       location.href = shareURL;
     }
