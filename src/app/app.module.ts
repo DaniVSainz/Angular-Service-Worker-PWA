@@ -10,6 +10,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule,MatIconModule,MatInputModule,MatSelectModule,MatSliderModule,MatToolbarModule,
         MatCardModule,MatSlideToggleModule,MatSnackBarModule} from '@angular/material';
 import 'hammerjs';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 
 import { ListComponent } from './list/list.component';
 import { CoffeeComponent } from './coffee/coffee.component'
@@ -34,7 +37,10 @@ const routes: Routes = [
     MatButtonModule,MatIconModule,MatInputModule,MatSelectModule,MatSliderModule,MatToolbarModule,
       MatCardModule,MatSlideToggleModule,MatSnackBarModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [GeolocationService,DataService],
   bootstrap: [AppComponent]
