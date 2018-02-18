@@ -8,7 +8,7 @@ export class DataService {
 
   constructor(private http: Http) { }
 
-  public endpoint = "http://localhost:3000"
+  public endpoint = "http://192.168.1.155:3000"
 
   get(coffeeId: string, callback){
     this.http.get(`${this.endpoint}/coffees/${coffeeId}`).subscribe(response => {
