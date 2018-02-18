@@ -19,6 +19,7 @@ export class CoffeeComponent implements OnInit {
   routingSubscription:any;
   coffee: Coffee;
   types = ["Espresso","Ristretto","Americano","Cappyccino"];
+  tastingEnabled: boolean = false;
 
   tastingRatingChanged(checked:boolean){
     if (checked) {
@@ -33,6 +34,14 @@ export class CoffeeComponent implements OnInit {
     this.coffee = new Coffee();
     this.routingSubscription = this.route.params.subscribe(params =>{
       console.log(params["id"]);
+      if(params['id']){
+        this.dataService.get(params["id"], response =>{
+          this.coffee = response ;
+          if(this.coffee.tastingRating){
+            this.tastingEnabled = true;
+          }
+        })
+      }
     });
 
     this.geoLocation.requestLocation(location =>{

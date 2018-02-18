@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DataService } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import Coffee from '../logic/Coffee';
@@ -9,7 +10,8 @@ import Coffee from '../logic/Coffee';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService,
+              private router: Router) { }
 
   list: [Coffee];
 
@@ -17,6 +19,10 @@ export class ListComponent implements OnInit {
     this.data.getList(list => {
       this.list = list;
     });
+  }
+
+  goToDetails(coffee){
+    this.router.navigate(['/coffee', coffee._id]);
   }
 
 }

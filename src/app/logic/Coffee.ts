@@ -6,6 +6,7 @@ class Coffee {
     rating:number;
     notes:string;
     tastingRating: TastingRating;
+    _id:string
 
     constructor(public name:string ="",
                  public place: string="",

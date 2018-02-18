@@ -6,7 +6,9 @@
         <input matInput  placeholder="Coffee Name" name="name" [(ngModel)]="coffee.name">
     </mat-input-container>
     <mat-select placeholder="Coffee Type" name="type" [(ngModel)]="coffee.type">
-        <mat-option *ngFor="let type of types">{{type}}</mat-option>
+      <mat-option *ngFor="let type of types" [value]="type">
+        {{ type }}
+      </mat-option>
     </mat-select>
   </mat-card>
 
@@ -32,7 +34,7 @@
 
 
     <mat-card-subtitle>
-      <mat-slide-toggle #tastingSelector (change)="tastingRatingChanged(tastingSelector.checked)">Tasting Ratings</mat-slide-toggle>
+      <mat-slide-toggle #tastingSelector [checked]="tastingEnabled" (change)="tastingRatingChanged(tastingSelector.checked)">Tasting Ratings</mat-slide-toggle>
     </mat-card-subtitle>
     <section id="tasting" *ngIf="tastingSelector.checked">
       <label>Aroma</label>
