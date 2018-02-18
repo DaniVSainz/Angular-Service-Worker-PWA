@@ -2,6 +2,7 @@ import { GeolocationService } from './../geolocation.service';
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import Coffee from '../logic/Coffee';
+import TastingRating from '../logic/TastingRating'
 @Component({
   selector: 'app-coffee',
   templateUrl: './coffee.component.html',
@@ -15,6 +16,16 @@ export class CoffeeComponent implements OnInit {
   routingSubscription:any;
   coffee: Coffee;
   types = ["Espresso","Ristretto","Americano","Cappyccino"];
+
+  tastingRatingChanged(checked:boolean){
+    if (checked) {
+      this.coffee.tastingRating = new TastingRating();
+    }else{
+      this.coffee.tastingRating = null;
+    }
+  }
+
+
   ngOnInit() {
     this.coffee = new Coffee();
     this.routingSubscription = this.route.params.subscribe(params =>{
