@@ -26,12 +26,12 @@ export class DataService {
     //Todo change it with a real web service
     if(coffee._id){
       //its a update
-      this.http.put(`${this.endpoint}/coffes/${coffee._id}`, coffee).subscribe(response => {
+      this.http.put(`${this.endpoint}/coffees/${coffee._id}`, coffee).subscribe(response => {
         callback(true);
       });
     }else{
       //its a insert
-      this.http.post(`${this.endpoint}/coffes/${coffee}`, coffee).subscribe(response => {
+      this.http.post(`${this.endpoint}/coffees`, coffee).subscribe(response => {
         callback(true);
       });
     }
