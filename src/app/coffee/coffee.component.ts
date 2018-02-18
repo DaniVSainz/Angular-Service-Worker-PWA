@@ -1,6 +1,6 @@
 import { GeolocationService } from './../geolocation.service';
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import Coffee from '../logic/Coffee';
 import TastingRating from '../logic/TastingRating'
 @Component({
@@ -11,7 +11,8 @@ import TastingRating from '../logic/TastingRating'
 export class CoffeeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-              private geoLocation:GeolocationService) { }
+              private geoLocation:GeolocationService,
+              private router:Router) { }
 
   routingSubscription:any;
   coffee: Coffee;
@@ -49,7 +50,7 @@ export class CoffeeComponent implements OnInit {
   }
 
   cancel(){
-    
+    this.router.navigate(["/"])
   }
 
 }

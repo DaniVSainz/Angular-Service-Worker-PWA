@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms'
 import {Routes,RouterModule} from '@angular/router';
-
+import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule,MatIconModule,MatInputModule,MatSelectModule,MatSliderModule,MatToolbarModule,
         MatCardModule,MatSlideToggleModule} from '@angular/material';
@@ -33,7 +33,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     MatButtonModule,MatIconModule,MatInputModule,MatSelectModule,MatSliderModule,MatToolbarModule,
       MatCardModule,MatSlideToggleModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [GeolocationService,DataService],
   bootstrap: [AppComponent]
