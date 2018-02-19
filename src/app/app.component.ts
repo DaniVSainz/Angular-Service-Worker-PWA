@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-
+import { SwUpdate } from '@angular/service-worker';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +8,8 @@ import { MatSnackBar } from '@angular/material';
 })
 export class AppComponent {
 
-  constructor(private snackBar: MatSnackBar){
+  constructor(private snackBar: MatSnackBar,
+              private ngsw: SwUpdate){
 
   }
 
@@ -23,9 +24,14 @@ export class AppComponent {
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+
+    //Checking network status
     this.updateNetworkStatusUi();
     window.addEventListener("online", this.updateNetworkStatusUi);
     window.addEventListener("offline", this.updateNetworkStatusUi);
+
+    //Chcking SW Update Status
+    this.ngsw.checkForUpdate();
 
     if ((navigator as any ).standalone==false){
       //This is a ios device and im in the browser
