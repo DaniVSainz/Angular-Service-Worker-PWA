@@ -12,9 +12,21 @@ export class AppComponent {
 
   }
 
+  updateNetworkStatusUi(){
+    if (navigator.onLine){
+      (document.querySelector("body") as any).style = "";
+    } else{
+      (document.querySelector("body") as any).style = "filter: grayscale(1)";
+    }
+  }
+
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+    this.updateNetworkStatusUi();
+    window.addEventListener("online", this.updateNetworkStatusUi);
+    window.addEventListener("offline", this.updateNetworkStatusUi);
+
     if ((navigator as any ).standalone==false){
       //This is a ios device and im in the browser
       this.snackBar.open('You can add this PWA to the Home Screen', null,{duration:3000});

@@ -19,9 +19,23 @@
     "installMode": "lazy",
     "updateMode": "prefetch",
     "resources": {
-      "files": [
-        "/assets/**"
+      "files": ["/assets/**"],
+      "urls": [
+        "https://fonts.googleapis.com/**"
       ]
     }
-  }]
+  }],
+  "dataGroups": [{
+    "name": "api-freshness",
+    "urls": [
+      "http://127.0.0.1:3000/coffees"
+    ],
+    "cacheConfig": {
+      "strategy": "performance",
+      "maxSize": 100,
+      "maxAge": "3d",
+      "timeout": "2s"
+    }
+  }
+]
 }
